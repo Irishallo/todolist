@@ -1,0 +1,2 @@
+const allProjects = [];
+const general = [];
