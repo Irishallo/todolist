@@ -1,6 +1,68 @@
+/* For mobile phones: */
+* {
+    margin: 0;
+    padding: 0;
+}
+
 nav {
-    width: 60vw;
+    width: 100vw;
     height: 10vh;
     background-color: rgb(219, 152, 202);
-    margin-left: 20vw;
+    /* margin-left: 20vw; */
 }
+
+form {
+    width: 30vw;
+    height: 60vh;
+    background-color: rgb(241, 213, 234);
+    margin-left: 35vw;
+    margin-top: 10vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#addtodobtn {
+    font-size: 5em;
+    line-height: 0.53em;
+    background-color: transparent;
+    border: transparent;
+}
+  
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    nav {
+        width: 100vw;
+        height: 10vh;
+    }
+    
+    form {
+        width: 30vw;
+        height: 60vh;
+        margin-left: 35vw;
+        margin-top: 10vh;
+    }
+    
+    #addtodobtn {
+        font-size: 5em;
+        line-height: 0.53em;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    nav {
+        width: 100vw;
+        height: 10vh;
+    }
+    
+    form {
+        width: 30vw;
+        height: 60vh;
+        margin-left: 35vw;
+        margin-top: 10vh;
+    }
+    
+    #addtodobtn {
+        font-size: 5em;
+        line-height: 0.53em;
+    }
+  } 
