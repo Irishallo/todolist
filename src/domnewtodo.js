@@ -43,7 +43,7 @@ const domToDo = () => {
     priorityInput.setAttribute('max', '5');
     priorityInput.setAttribute('value', '1');
     const submitInput = document.createElement('input');
-    submitInput.setAttribute('id', 'priorityin');
+    submitInput.setAttribute('id', 'submitin');
     submitInput.setAttribute('type', 'submit');
     submitInput.setAttribute('value', 'submit');
     

@@ -5,3 +5,5 @@ const toDoFactory = (title, description, duedate, priority) => {
     const getPriority = () => priority;
     let Checked = 'no';
 }
+
+export default toDoFactory;

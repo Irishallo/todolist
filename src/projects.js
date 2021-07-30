@@ -1,2 +1,7 @@
 const allProjects = [];
-const general = [];
+const generalProject = [];
+
+export {
+    allProjects,
+    generalProject
+}
