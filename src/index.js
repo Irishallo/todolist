@@ -41,8 +41,8 @@ function submitToDo() {
         window['todo' + (generalProject.length + 1)] = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
         // eval('const todo' + (generalProject.length + 1) + '=' + toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value) + ';')
         // const `todo${generalProject.length+ 1}` = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
-        console.log(todo1);
-        generalProject.push(todo1);
+        console.log((`todo` + (generalProject.length + 1)));
+        generalProject.push((`todo` + (generalProject.length + 1)));
         console.log(generalProject);
         } else { return}
     })
