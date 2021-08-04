@@ -33,15 +33,18 @@ function submitToDo() {
 
     submitBtn.addEventListener('click' , () => {
         if(formHere == 'yes') {
-        console.log('form is here');
         const titleText = document.getElementById('titlein');
         const descriptionText = document.getElementById('descriptionin');
-        const dueDateText = document.getElementById('duedatein');
+        const dueDateText = document.getElementById('datein');
         const priorityText = document.getElementById('priorityin');
-        const todo1 = toDoFactory(titleText.innerText, descriptionText.innerText, dueDateText.innerText, priorityText.innerText);
+        console.log(toDoFactory);
+        window['todo' + (generalProject.length + 1)] = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
+        // eval('const todo' + (generalProject.length + 1) + '=' + toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value) + ';')
+        // const `todo${generalProject.length+ 1}` = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
+        console.log(todo1);
         generalProject.push(todo1);
         console.log(generalProject);
-        }
+        } else { return}
     })
 }
 

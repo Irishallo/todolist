@@ -44,7 +44,7 @@ const domToDo = () => {
     priorityInput.setAttribute('value', '1');
     const submitInput = document.createElement('input');
     submitInput.setAttribute('id', 'submitin');
-    submitInput.setAttribute('type', 'submit');
+    submitInput.setAttribute('type', 'button');
     submitInput.setAttribute('value', 'submit');
     
     titleTd1.appendChild(titleLabel);
