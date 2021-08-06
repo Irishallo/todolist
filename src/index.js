@@ -2,11 +2,13 @@ import './style.css';
 import domToDo from './domnewtodo';
 import {allProjects, generalProject} from './projects';
 import toDoFactory from './newtodo';
+import { showToDos } from './domshowtodos';
 
 let formHere = 'no';
 const contentDiv = document.getElementById('content');
 const navBar = document.createElement('nav');
 const toDoDiv = document.createElement('div');
+toDoDiv.setAttribute('id', 'tododiv');
 const addToDoBtn = document.createElement('button');
 addToDoBtn.innerText = '+';
 addToDoBtn.setAttribute('id', 'addtodobtn');
@@ -37,13 +39,15 @@ function submitToDo() {
         const descriptionText = document.getElementById('descriptionin');
         const dueDateText = document.getElementById('datein');
         const priorityText = document.getElementById('priorityin');
-        console.log(toDoFactory);
         window['todo' + (generalProject.length + 1)] = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
         // eval('const todo' + (generalProject.length + 1) + '=' + toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value) + ';')
         // const `todo${generalProject.length+ 1}` = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
-        console.log((`todo` + (generalProject.length + 1)));
-        generalProject.push((`todo` + (generalProject.length + 1)));
+        console.log(window['todo' + (generalProject.length + 1)]);
+        generalProject.push(window['todo' + (generalProject.length + 1)]);
         console.log(generalProject);
+        contentDiv.removeChild(document.getElementById('createtodo'));
+        formHere = 'no';
+        showToDos();
         } else { return}
     })
 }
