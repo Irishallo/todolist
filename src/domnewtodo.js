@@ -12,6 +12,7 @@ const domToDo = () => {
     const titleInput = document.createElement('input');
     titleInput.setAttribute('id', 'titlein');
     titleInput.setAttribute('name', 'titlein');
+    titleInput.setAttribute('type', 'text');
     const descriptionRow = document.createElement('tr');
     const descriptionTd1 = document.createElement('td');
     const descriptionTd2 = document.createElement('td');
