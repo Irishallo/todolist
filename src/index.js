@@ -40,8 +40,6 @@ function submitToDo() {
         const dueDateText = document.getElementById('datein');
         const priorityText = document.getElementById('priorityin');
         window['todo' + (generalProject.length + 1)] = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
-        // eval('const todo' + (generalProject.length + 1) + '=' + toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value) + ';')
-        // const `todo${generalProject.length+ 1}` = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
         console.log(window['todo' + (generalProject.length + 1)]);
         generalProject.push(window['todo' + (generalProject.length + 1)]);
         console.log(generalProject);
