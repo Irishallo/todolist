@@ -1,3 +1,5 @@
+import { allProjects } from "./projects";
+
 const domToDo = () => {
     const contentDiv = document.getElementById('content');
     const toDoForm = document.createElement('form');
@@ -43,6 +45,15 @@ const domToDo = () => {
     priorityInput.setAttribute('min', '1');
     priorityInput.setAttribute('max', '5');
     priorityInput.setAttribute('value', '1');
+    const projectsInput = document.createElement('select');
+    projectsInput.setAttribute('id', 'projectsin');
+    for (const property in allProjects) {
+        const selectOption = document.createElement('option');
+        selectOption.setAttribute('value', `${property}`);
+        selectOption.innerText = `${property}`;
+        projectsInput.appendChild(selectOption);
+      }
+    
     const submitInput = document.createElement('input');
     submitInput.setAttribute('id', 'submitin');
     submitInput.setAttribute('type', 'button');
@@ -70,6 +81,7 @@ const domToDo = () => {
     toDoTable.appendChild(dateRow);
     toDoTable.appendChild(priorityRow);
     toDoForm.appendChild(toDoTable);
+    toDoForm.appendChild(projectsInput);
     toDoForm.appendChild(submitInput);
     contentDiv.appendChild(toDoForm);
 }

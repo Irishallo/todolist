@@ -4,6 +4,7 @@ import {allProjects, generalProject} from './projects';
 import toDoFactory from './newtodo';
 import { showToDos } from './domshowtodos';
 
+console.log(allProjects);
 let formHere = 'no';
 const contentDiv = document.getElementById('content');
 const navBar = document.createElement('nav');
@@ -12,8 +13,12 @@ toDoDiv.setAttribute('id', 'tododiv');
 const addToDoBtn = document.createElement('button');
 addToDoBtn.innerText = '+';
 addToDoBtn.setAttribute('id', 'addtodobtn');
+const projectsBtn = document.createElement('button');
+projectsBtn.innerText = 'Projects';
+projectsBtn.setAttribute('id', 'projectsbtn');
 
 navBar.appendChild(addToDoBtn);
+navBar.appendChild(projectsBtn);
 
 contentDiv.appendChild(navBar);
 contentDiv.appendChild(toDoDiv);

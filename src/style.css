@@ -18,6 +18,14 @@ nav {
     border: transparent;
 }
 
+#projectsbtn {
+    font-size: 3em;
+    line-height: 0.8em;
+    background-color: rgb(219, 129, 197);
+    border: transparent;
+    float: right;
+}
+
 .checkmark {
     width: 25px;
     height: 25px;
