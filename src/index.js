@@ -13,11 +13,15 @@ toDoDiv.setAttribute('id', 'tododiv');
 const addToDoBtn = document.createElement('button');
 addToDoBtn.innerText = '+';
 addToDoBtn.setAttribute('id', 'addtodobtn');
+const projectTitle = document.createElement('h1');
+projectTitle.innerText = 'General Project';
+projectTitle.setAttribute('id', 'projecttitle');
 const projectsBtn = document.createElement('button');
 projectsBtn.innerText = 'Projects';
 projectsBtn.setAttribute('id', 'projectsbtn');
 
 navBar.appendChild(addToDoBtn);
+navBar.appendChild(projectTitle);
 navBar.appendChild(projectsBtn);
 
 contentDiv.appendChild(navBar);
