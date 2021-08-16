@@ -3,6 +3,7 @@ import domToDo from './domnewtodo';
 import {allProjects, generalProject} from './projects';
 import toDoFactory from './newtodo';
 import { showToDos } from './domshowtodos';
+import { showProjects } from './domshowprojects';
 
 console.log(allProjects);
 let formHere = 'no';
@@ -58,6 +59,19 @@ function submitToDo() {
         } else { return}
     })
 }
+
+projectsBtn.addEventListener('click', () => {
+    const projectFolder = document.getElementById('projectscontainer');
+    console.log(projectFolder);
+    if(toDoDiv.contains(projectFolder)) {
+        toDoDiv.removeChild(projectFolder);
+        console.log("projects folder is there");
+    } else {
+        showProjects();
+        console.log("projectfolder is not there");
+    }
+}
+);
 
 
 
