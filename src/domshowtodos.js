@@ -4,6 +4,7 @@ export function showToDos () {
     const DivToDo = document.getElementById('tododiv');
     const tableToDo = document.createElement('table');
     tableToDo.classList.add("showtodotable");
+    tableToDo.setAttribute('id', 'showtdtab');
     for (let i = (generalProject.length - 1); i < generalProject.length; i++) {
         const tableRow = document.createElement('tr');
         const td1 = document.createElement('td');
@@ -18,8 +19,9 @@ export function showToDos () {
         const dueDateToDo = document.createElement('p');
         dueDateToDo.innerText = generalProject[i].getDueDate;
         const tableRow2 = document.createElement('tr');
+        tableRow2.classList.add('descriptionrow');
         const td4 = document.createElement('td');
-        td4.setAttribute('colspan', '3');
+        td4.setAttribute('colspan', '2');
         const descriptionToDo = document.createElement('p');
         descriptionToDo.innerText = generalProject[i].getDescription;
         const emptyTd = document.createElement('td');

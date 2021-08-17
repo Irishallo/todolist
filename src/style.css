@@ -37,12 +37,37 @@ nav {
 }
 
 .showtodotable {
-    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.showtodotable2 {
     border-collapse: collapse;
 }
 
 td {
     border: none;
+}
+
+tr td:last-child {
+    width: 1%;
+    white-space: nowrap;
+    padding: 0 5px;
+}
+
+tr td:first-child {
+    width: 1%;
+    white-space: nowrap;
+    padding: 0 5px;
+}
+
+tr td:nth-child(2) {
+    max-width: 98%;
+    padding: 0 5px;
+}
+
+.descriptionrow td {
+    white-space: normal;
 }
 
 .priority1 {
@@ -76,6 +101,7 @@ td {
     height: 100%;
     position: absolute;
     right: 0;
+    top: 10%;
 }
 
 /* For mobile phones: */
@@ -117,6 +143,13 @@ td {
     #projectscontainer {
         width: 33%;
     }
+    .showtodotable {
+        width: 100%;
+    }
+    
+    .showtodotable2 {
+        width: 67%;
+    }
   }
   
   @media only screen and (min-width: 600px) {
@@ -147,6 +180,14 @@ td {
 
     #projectscontainer {
         width: 33%;
+    }
+
+    .showtodotable {
+        width: 100%;
+    }
+    
+    .showtodotable2 {
+        width: 67%;
     }
   }
   
@@ -179,5 +220,13 @@ td {
 
     #projectscontainer {
         width: 25%;
+    }
+
+    .showtodotable {
+        width: 100%;
+    }
+    
+    .showtodotable2 {
+        width: 75%;
     }
   } 

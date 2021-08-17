@@ -62,13 +62,17 @@ function submitToDo() {
 
 projectsBtn.addEventListener('click', () => {
     const projectFolder = document.getElementById('projectscontainer');
-    console.log(projectFolder);
+    const showToDoTable = document.getElementById('showtdtab');
     if(toDoDiv.contains(projectFolder)) {
         toDoDiv.removeChild(projectFolder);
         console.log("projects folder is there");
+        showToDoTable.classList.add('showtodotable');
+        showToDoTable.classList.remove('showtodotable2');
     } else {
         showProjects();
         console.log("projectfolder is not there");
+        showToDoTable.classList.add('showtodotable2');
+        showToDoTable.classList.remove('showtodotable');
     }
 }
 );
