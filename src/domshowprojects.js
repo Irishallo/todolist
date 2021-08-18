@@ -16,4 +16,31 @@ export const showProjects = () => {
     }
 
     DivToDo.appendChild(projectsContainer);
+
+    addNewProject.addEventListener('click', () => {
+      const inputNewProject = document.createElement('input');
+      inputNewProject.setAttribute('type', 'text');
+      inputNewProject.setAttribute('value', 'new project');
+      inputNewProject.setAttribute('id', 'newprojectinput');
+      projectsContainer.appendChild(inputNewProject);
+      const btnNewProject = document.createElement('button');
+      btnNewProject.setAttribute('id', 'newprojectbtn');
+      btnNewProject.innerText = 'Go';
+      projectsContainer.appendChild(btnNewProject);
+
+      inputNewProject.addEventListener("keyup", function(event) {
+        if (event.code === 'Enter') {
+         event.preventDefault();
+         btnNewProject.click();
+        }
+      });
+
+      btnNewProject.addEventListener('click', () => {
+        const newProjectTxt = document.createElement('h2');
+        newProjectTxt.innerText = inputNewProject.value;
+        projectsContainer.appendChild(newProjectTxt);
+        projectsContainer.removeChild(inputNewProject);
+        projectsContainer.removeChild(btnNewProject);
+      })
+    })
 }

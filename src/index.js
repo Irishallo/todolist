@@ -66,13 +66,18 @@ projectsBtn.addEventListener('click', () => {
     if(toDoDiv.contains(projectFolder)) {
         toDoDiv.removeChild(projectFolder);
         console.log("projects folder is there");
-        showToDoTable.classList.add('showtodotable');
-        showToDoTable.classList.remove('showtodotable2');
+        if(!showToDoTable == null){
+            showToDoTable.classList.add('showtodotable');
+            showToDoTable.classList.remove('showtodotable2');
+        }
     } else {
         showProjects();
         console.log("projectfolder is not there");
-        showToDoTable.classList.add('showtodotable2');
-        showToDoTable.classList.remove('showtodotable');
+        if(!showToDoTable == null){
+            showToDoTable.classList.add('showtodotable2');
+            showToDoTable.classList.remove('showtodotable');
+        }
+        
     }
 }
 );
