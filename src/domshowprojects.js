@@ -9,10 +9,13 @@ export const showProjects = () => {
   addNewProject.innerText = '+ New Project';
   projectsContainer.appendChild(addNewProject);
 
-  for (const property in allProjects) {
-      const projectOption = document.createElement('h2');
-      projectOption.innerText = `${property}`;
-      projectsContainer.appendChild(projectOption);
+  allProjects.forEach(getProjectName);
+    function getProjectName(_project, index) {
+      for (const property in allProjects[index]) {
+        const projectOption = document.createElement('h2');
+        projectOption.innerText = `${property}`;
+        projectsContainer.appendChild(projectOption);
+      }
     }
 
     DivToDo.appendChild(projectsContainer);
@@ -36,11 +39,16 @@ export const showProjects = () => {
       });
 
       btnNewProject.addEventListener('click', () => {
+        const newProjectTitle = inputNewProject.value;
         const newProjectTxt = document.createElement('h2');
-        newProjectTxt.innerText = inputNewProject.value;
+        newProjectTxt.innerText = newProjectTitle;
         projectsContainer.appendChild(newProjectTxt);
         projectsContainer.removeChild(inputNewProject);
         projectsContainer.removeChild(btnNewProject);
+        // window[newProjectTitle] = [];
+        // const newProjectObject = {newProjectTitle: window[newProjectTitle] = []};
+        
+        // allProjects.push(newProjectObject);
       })
     })
 }

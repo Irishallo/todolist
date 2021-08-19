@@ -1,5 +1,5 @@
 const generalProject = [];
-const allProjects = {"generalProject": generalProject};
+const allProjects = [{"generalProject": generalProject}];
 
 export {
     allProjects,

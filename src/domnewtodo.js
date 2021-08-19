@@ -1,4 +1,4 @@
-import { allProjects } from "./projects";
+import { allProjects, generalProject } from "./projects";
 
 const domToDo = () => {
     const contentDiv = document.getElementById('content');
@@ -47,12 +47,16 @@ const domToDo = () => {
     priorityInput.setAttribute('value', '1');
     const projectsInput = document.createElement('select');
     projectsInput.setAttribute('id', 'projectsin');
-    for (const property in allProjects) {
+    allProjects.forEach(getProjectName);
+    function getProjectName(_project, index) {
+      for (const property in allProjects[index]) {
         const selectOption = document.createElement('option');
         selectOption.setAttribute('value', `${property}`);
         selectOption.innerText = `${property}`;
         projectsInput.appendChild(selectOption);
       }
+    }
+    
     
     const submitInput = document.createElement('input');
     submitInput.setAttribute('id', 'submitin');
