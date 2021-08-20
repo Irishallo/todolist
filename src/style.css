@@ -66,9 +66,28 @@ tr td:nth-child(2) {
     padding: 0 5px;
 }
 
-.descriptionrow td {
-    white-space: normal;
+.descriptionrow {
+    display: none;
 }
+
+.descriptionrowopen {
+    white-space: inherit;
+}
+
+.collapsible {
+    background-color: transparent;
+    border: transparent;
+}
+
+.collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
 
 .priority1 {
     background-color: rgb(222, 247, 253);

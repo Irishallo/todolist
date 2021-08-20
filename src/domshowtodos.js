@@ -18,10 +18,13 @@ export function showToDos () {
         const td3 = document.createElement('td');
         const dueDateToDo = document.createElement('p');
         dueDateToDo.innerText = generalProject[i].getDueDate;
+        const td5 = document.createElement('td');
+        const collapseBtn = document.createElement('button');
+        collapseBtn.classList.add('collapsible');
         const tableRow2 = document.createElement('tr');
         tableRow2.classList.add('descriptionrow');
         const td4 = document.createElement('td');
-        td4.setAttribute('colspan', '2');
+        td4.setAttribute('colspan', '3');
         const descriptionToDo = document.createElement('p');
         descriptionToDo.innerText = generalProject[i].getDescription;
         const emptyTd = document.createElement('td');
@@ -50,13 +53,31 @@ export function showToDos () {
         td2.appendChild(titleToDo);
         td3.appendChild(dueDateToDo);
         td4.appendChild(descriptionToDo);
+        td5.appendChild(collapseBtn);
         tableRow.appendChild(td1);
         tableRow.appendChild(td2);
         tableRow.appendChild(td3);
+        tableRow.appendChild(td5);
         tableRow2.appendChild(emptyTd);
         tableRow2.appendChild(td4);
         tableToDo.appendChild(tableRow);
         tableToDo.appendChild(tableRow2);
       } 
       DivToDo.appendChild(tableToDo);
+
+      let coll = document.getElementsByClassName("collapsible");
+      let i;
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          let content = this.parentNode.parentNode.nextElementSibling;
+          if (content.classList.contains("descriptionrowopen") ) {
+            content.classList.add("descriptionrow");
+            content.classList.remove("descriptionrowopen");
+          } else {
+            content.classList.add("descriptionrowopen");
+            content.classList.remove("descriptionrow");
+          }
+        });
+      }
 }
