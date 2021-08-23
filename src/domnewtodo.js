@@ -49,12 +49,10 @@ const domToDo = () => {
     projectsInput.setAttribute('id', 'projectsin');
     allProjects.forEach(getProjectName);
     function getProjectName(_project, index) {
-      for (const property in allProjects[index]) {
-        const selectOption = document.createElement('option');
-        selectOption.setAttribute('value', `${property}`);
-        selectOption.innerText = `${property}`;
-        projectsInput.appendChild(selectOption);
-      }
+      const selectOption = document.createElement('option');
+      selectOption.setAttribute('value', `${allProjects[index].getTitle}`);
+      selectOption.innerText = `${allProjects[index].getTitle}`;
+      projectsInput.appendChild(selectOption);
     }
     
     

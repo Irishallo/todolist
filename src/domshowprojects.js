@@ -1,4 +1,4 @@
-import { allProjects } from "./projects";
+import { allProjects, projectFactory } from "./projects";
 
 export const showProjects = () => {
   const projectsContainer = document.createElement('div');
@@ -11,11 +11,9 @@ export const showProjects = () => {
 
   allProjects.forEach(getProjectName);
     function getProjectName(_project, index) {
-      for (const property in allProjects[index]) {
-        const projectOption = document.createElement('h2');
-        projectOption.innerText = `${property}`;
-        projectsContainer.appendChild(projectOption);
-      }
+      const projectOption = document.createElement('h2');
+      projectOption.innerText = `${allProjects[index].getTitle}`;
+      projectsContainer.appendChild(projectOption);
     }
 
     DivToDo.appendChild(projectsContainer);
@@ -45,10 +43,9 @@ export const showProjects = () => {
         projectsContainer.appendChild(newProjectTxt);
         projectsContainer.removeChild(inputNewProject);
         projectsContainer.removeChild(btnNewProject);
-        // window[newProjectTitle] = [];
-        // const newProjectObject = {newProjectTitle: window[newProjectTitle] = []};
+        window[newProjectTitle] = [];
         
-        // allProjects.push(newProjectObject);
+        allProjects.push(projectFactory(newProjectTitle, window[newProjectTitle] = []));
       })
     })
 }
