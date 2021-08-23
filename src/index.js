@@ -49,10 +49,11 @@ function submitToDo() {
         const descriptionText = document.getElementById('descriptionin');
         const dueDateText = document.getElementById('datein');
         const priorityText = document.getElementById('priorityin');
-        window['todo' + (generalProject.length + 1)] = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
-        console.log(window['todo' + (generalProject.length + 1)]);
-        generalProject.push(window['todo' + (generalProject.length + 1)]);
-        console.log(generalProject);
+        const projectChoice = document.getElementById('projectsin').value;
+        // window['todo' + (projectChoice.length + 1)] = toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value);
+        console.log(toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value));
+        generalProject.push(toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value));
+        console.log(projectChoice);
         contentDiv.removeChild(document.getElementById('createtodo'));
         formHere = 'no';
         showToDos();
