@@ -1,8 +1,12 @@
+import { contentDiv, toDoDiv } from ".";
 import { allProjects, projectFactory } from "./projects";
 
+// general variables
+const projectsContainer = document.createElement('div');
+projectsContainer.setAttribute('id', 'projectscontainer');
+
+// showing the projects in the project folder + adding new projects
 export const showProjects = () => {
-  const projectsContainer = document.createElement('div');
-  projectsContainer.setAttribute('id', 'projectscontainer');
   const DivToDo = document.getElementById('tododiv');
   const addNewProject = document.createElement('h2');
   addNewProject.setAttribute('id', 'addnewproject');
@@ -48,4 +52,38 @@ export const showProjects = () => {
         allProjects.push(projectFactory(newProjectTitle, window[newProjectTitle] = []));
       })
     })
+}
+
+// clicking the projects button
+export const projectEvent = () => {
+  const showToDoTable = document.getElementById('showtdtab');
+  const formNewToDO = document.getElementById('createtodo');
+  if(toDoDiv.contains(projectsContainer)) {
+    projectsContainer.innerHTML = "";
+      toDoDiv.removeChild(projectsContainer);
+      console.log("projects folder is there");
+      if(!showToDoTable == null){
+          showToDoTable.classList.add('showtodotable');
+          showToDoTable.classList.remove('showtodotable2');
+      }
+  } else {
+      showProjects();
+      console.log("projectfolder is not there");
+      console.log(formNewToDO);
+      if(!showToDoTable == null){
+          showToDoTable.classList.add('showtodotable2');
+          showToDoTable.classList.remove('showtodotable');
+      } else {
+          console.log('no table');
+      };
+
+      if(formNewToDO == null) {
+          console.log('form no');
+          
+      } else {
+          console.log('yes form');
+          contentDiv.removeChild(formNewToDO);
+      };
+      
+  }
 }

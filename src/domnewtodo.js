@@ -1,7 +1,13 @@
-import { allProjects, generalProject } from "./projects";
+import { allProjects} from "./projects";
+import { toDoFactory } from "./newtodo";
+import { showToDos } from "./domshowtodos";
+import { toDoDiv } from ".";
 
+const contentDiv = document.getElementById('content');
+let formHere = 'no';
+
+// create todo form
 const domToDo = () => {
-    const contentDiv = document.getElementById('content');
     const toDoForm = document.createElement('form');
     toDoForm.setAttribute('id', 'createtodo');
     const toDoTable = document.createElement('table');
@@ -55,7 +61,6 @@ const domToDo = () => {
       projectsInput.appendChild(selectOption);
     }
     
-    
     const submitInput = document.createElement('input');
     submitInput.setAttribute('id', 'submitin');
     submitInput.setAttribute('type', 'button');
@@ -86,6 +91,58 @@ const domToDo = () => {
     toDoForm.appendChild(projectsInput);
     toDoForm.appendChild(submitInput);
     contentDiv.appendChild(toDoForm);
+}
+
+// when to do button is clicked
+export const toDoEvent = () => {
+  let newToDoForm = document.getElementById('createtodo');
+  const projectsBanner = document.getElementById('projectscontainer');
+  if(!contentDiv.contains(newToDoForm)) {
+      domToDo();
+      formHere = 'yes';
+      submitToDo();
+
+      if(projectsBanner == null) {
+          console.log("no projecstfolder");
+      } else {
+          console.log("removing the projectsfolder");
+          projectsBanner.innerHTML = "";
+          toDoDiv.removeChild(projectsBanner);
+      }
+  } else {
+      contentDiv.removeChild(newToDoForm);
+      formHere = 'no';
+  }
+}
+
+// submit the new todo
+function submitToDo() {
+  const submitBtn = document.getElementById('submitin');
+
+  submitBtn.addEventListener('click' , () => {
+      if(formHere == 'yes') {
+      const titleText = document.getElementById('titlein');
+      const descriptionText = document.getElementById('descriptionin');
+      const dueDateText = document.getElementById('datein');
+      const priorityText = document.getElementById('priorityin');
+      const projectChoice = document.getElementById('projectsin').value;
+
+      allProjects.find(pushToDo);
+
+      function pushToDo(_project, index) {
+          if(allProjects[index].getTitle == projectChoice) {
+              console.log("we have a match");
+              console.log(allProjects[index].getArray);
+              allProjects[index].getArray.push(toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value));
+              console.log(allProjects);
+          }
+      };
+
+      contentDiv.removeChild(document.getElementById('createtodo'));
+      formHere = 'no';
+      showToDos();
+      } else { return}
+  })
 }
 
 export default domToDo;
