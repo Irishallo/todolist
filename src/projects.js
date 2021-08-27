@@ -3,11 +3,11 @@ const allProjects = [];
 
 const projectFactory = (title, array) => {
     const getTitle = title;
-    const getArray = array;
-    return {getTitle, getArray}
+    const TheArray = array;
+    return {getTitle, TheArray}
 }
 
-const generalPrObject = projectFactory('generalProject', generalProject);
+const generalPrObject = projectFactory('General Project', generalProject);
 
 allProjects.push(generalPrObject);
 

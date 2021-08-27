@@ -1,7 +1,7 @@
 import { allProjects} from "./projects";
 import { toDoFactory } from "./newtodo";
 import { showToDos } from "./domshowtodos";
-import { toDoDiv } from ".";
+import { currentProject, toDoDiv } from ".";
 
 const contentDiv = document.getElementById('content');
 let formHere = 'no';
@@ -132,15 +132,15 @@ function submitToDo() {
       function pushToDo(_project, index) {
           if(allProjects[index].getTitle == projectChoice) {
               console.log("we have a match");
-              console.log(allProjects[index].getArray);
-              allProjects[index].getArray.push(toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value));
+              console.log(allProjects[index].TheArray);
+              allProjects[index].TheArray.push(toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value));
               console.log(allProjects);
           }
       };
 
       contentDiv.removeChild(document.getElementById('createtodo'));
       formHere = 'no';
-      showToDos();
+      showToDos(currentProject);
       } else { return}
   })
 }

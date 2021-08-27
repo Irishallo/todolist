@@ -1,11 +1,13 @@
 import { generalProject } from "./projects";
 
-export function showToDos () {
+export function showToDos (project) {
     const DivToDo = document.getElementById('tododiv');
     const tableToDo = document.createElement('table');
     tableToDo.classList.add("showtodotable");
     tableToDo.setAttribute('id', 'showtdtab');
-    for (let i = (generalProject.length - 1); i < generalProject.length; i++) {
+    const todoTitles = document.getElementsByClassName('todotitle');
+    for (let i = 0; i < project.length; i++) {
+      // if(project[i].getTitle == todoTitles) {}
         const tableRow = document.createElement('tr');
         const td1 = document.createElement('td');
         const checkToDo = document.createElement('input');
@@ -14,10 +16,10 @@ export function showToDos () {
         const td2 = document.createElement('td');
         const titleToDo = document.createElement('p');
         titleToDo.classList.add('todotitle');
-        titleToDo.innerText = generalProject[i].getTitle;
+        titleToDo.innerText = project[i].getTitle;
         const td3 = document.createElement('td');
         const dueDateToDo = document.createElement('p');
-        dueDateToDo.innerText = generalProject[i].getDueDate;
+        dueDateToDo.innerText = project[i].getDueDate;
         const td5 = document.createElement('td');
         const collapseBtn = document.createElement('button');
         collapseBtn.classList.add('collapsible');
@@ -26,22 +28,22 @@ export function showToDos () {
         const td4 = document.createElement('td');
         td4.setAttribute('colspan', '3');
         const descriptionToDo = document.createElement('p');
-        descriptionToDo.innerText = generalProject[i].getDescription;
+        descriptionToDo.innerText = project[i].getDescription;
         const emptyTd = document.createElement('td');
 
-        if(generalProject[i].getPriority == 1) {
+        if(project[i].getPriority == 1) {
           tableRow.classList.add('priority1');
           tableRow2.classList.add('priority1');
-        } else if(generalProject[i].getPriority == 2) {
+        } else if(project[i].getPriority == 2) {
           tableRow.classList.add('priority2');
           tableRow2.classList.add('priority2');
-        } else if(generalProject[i].getPriority == 3) {
+        } else if(project[i].getPriority == 3) {
           tableRow.classList.add('priority3');
           tableRow2.classList.add('priority3');
-        } else if(generalProject[i].getPriority == 4) {
+        } else if(project[i].getPriority == 4) {
           tableRow.classList.add('priority4');
           tableRow2.classList.add('priority4');
-        } else if(generalProject[i].getPriority == 5) {
+        } else if(project[i].getPriority == 5) {
           tableRow.classList.add('priority5');
           tableRow2.classList.add('priority5');
         } else {

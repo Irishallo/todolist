@@ -1,4 +1,5 @@
-import { contentDiv, toDoDiv } from ".";
+import { contentDiv, currentProject, toDoDiv } from ".";
+import { showToDos } from "./domshowtodos";
 import { allProjects, projectFactory } from "./projects";
 
 // general variables
@@ -18,6 +19,17 @@ export const showProjects = () => {
       const projectOption = document.createElement('h2');
       projectOption.innerText = `${allProjects[index].getTitle}`;
       projectsContainer.appendChild(projectOption);
+      projectOption.addEventListener('click', () => {
+        const toDoTable = document.getElementById("showtdtab");
+        let projectArray = allProjects[index].TheArray;
+        if(toDoTable == null) {
+          console.log('geen tabel');
+        } else {
+          DivToDo.removeChild(toDoTable);
+          console.log('tabel weghalen');
+        }
+        showToDos(projectArray);
+      })
     }
 
     DivToDo.appendChild(projectsContainer);

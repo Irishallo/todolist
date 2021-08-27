@@ -1,8 +1,11 @@
 import './style.css';
 import { toDoEvent } from './domnewtodo';
 import { projectEvent} from './domshowprojects';
+import { generalProject } from './projects';
 
 // general layout and variables
+
+export let currentProject = generalProject;
 
 export const contentDiv = document.getElementById('content');
 
