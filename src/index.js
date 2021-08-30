@@ -33,6 +33,12 @@ navBar.appendChild(projectsBtn);
 contentDiv.appendChild(navBar);
 contentDiv.appendChild(toDoDiv);
 
+export const tableToDo = document.createElement('table');
+tableToDo.classList.add("showtodotable");
+tableToDo.setAttribute('id', 'showtdtab');
+
+toDoDiv.appendChild(tableToDo);
+
 // eventlisteners
 
 //add to do +
