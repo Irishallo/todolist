@@ -1,7 +1,7 @@
 import { allProjects} from "./projects";
 import { toDoFactory } from "./newtodo";
 import { showToDos } from "./domshowtodos";
-import { currentProject, toDoDiv } from ".";
+import { currentProject, projectTitle, toDoDiv } from ".";
 
 const contentDiv = document.getElementById('content');
 let formHere = 'no';
@@ -58,6 +58,11 @@ const domToDo = () => {
       const selectOption = document.createElement('option');
       selectOption.setAttribute('value', `${allProjects[index].getTitle}`);
       selectOption.innerText = `${allProjects[index].getTitle}`;
+
+      if(projectTitle.innerText == selectOption.innerText) {
+        selectOption.selected = 'true';
+      }
+
       projectsInput.appendChild(selectOption);
     }
     

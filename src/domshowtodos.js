@@ -63,9 +63,15 @@ export function showToDos (project) {
 
        } else {
         console.log(todoTitles);
+        let titleArray = [];
+        project.forEach(item => {
+          titleArray.push(item.getTitle);
+        });
+        console.log(titleArray);
          for (element of todoTitles) {
         console.log(element.innerText);
-        if (element.innerText != project[i].getTitle) {
+        if (titleArray.indexOf(element.innerText) == -1) {
+          console.log("new todo can be added!")
           // const tableRow = document.createElement('tr');
           // const td1 = document.createElement('td');
           // const checkToDo = document.createElement('input');

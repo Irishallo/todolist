@@ -1,4 +1,4 @@
-import { contentDiv, currentProject, toDoDiv } from ".";
+import { contentDiv, currentProject, projectTitle, toDoDiv } from ".";
 import { showToDos } from "./domshowtodos";
 import { allProjects, projectFactory } from "./projects";
 
@@ -29,6 +29,7 @@ export const showProjects = () => {
           console.log('tabel weghalen');
         }
         showToDos(projectArray);
+        projectTitle.innerText = `${allProjects[index].getTitle}`;
       })
     }
 
@@ -62,6 +63,19 @@ export const showProjects = () => {
         window[newProjectTitle] = [];
         
         allProjects.push(projectFactory(newProjectTitle, window[newProjectTitle] = []));
+
+        newProjectTxt.addEventListener('click', () => {
+          const toDoTable = document.getElementById("showtdtab");
+          let projectArray = allProjects[allProjects.length - 1].TheArray;
+          if(toDoTable == null) {
+            console.log('geen tabel');
+          } else {
+            DivToDo.removeChild(toDoTable);
+            console.log('tabel weghalen');
+          }
+          showToDos(projectArray);
+          projectTitle.innerText = `${allProjects[allProjects.length - 1].getTitle}`;
+        })
       })
     })
 }
