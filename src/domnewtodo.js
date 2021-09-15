@@ -1,6 +1,6 @@
 import { allProjects} from "./projects";
 import { toDoFactory } from "./newtodo";
-import { showToDos } from "./domshowtodos";
+import { addToDoToList } from "./domshowtodos";
 import { currentProject, projectTitle, toDoDiv } from ".";
 
 const contentDiv = document.getElementById('content');
@@ -145,7 +145,7 @@ function submitToDo() {
 
       contentDiv.removeChild(document.getElementById('createtodo'));
       formHere = 'no';
-      showToDos(currentProject);
+      addToDoToList(currentProject);
       } else { return}
   })
 }
