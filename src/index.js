@@ -5,6 +5,7 @@ import { generalProject } from './projects';
 
 // general layout and variables
 
+// currentProject holds which project is shown
 export let currentProject = generalProject;
 
 export const contentDiv = document.getElementById('content');
@@ -42,11 +43,9 @@ toDoDiv.appendChild(tableToDo);
 // eventlisteners
 
 //add to do +
-
 addToDoBtn.addEventListener('click', toDoEvent);
 
 // show projects list
-
 projectsBtn.addEventListener('click', projectEvent);
 
 

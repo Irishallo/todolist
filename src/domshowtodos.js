@@ -1,5 +1,8 @@
+import { tableToDo } from ".";
+
+// shows all to do items in a project
 export function showToDos (project) {
-    const toDoTable = document.getElementById('showtdtab');
+    //const tableToDo = document.getElementById('showtdtab');
 
     for (let i = 0; i < project.length; i++) {
         const tableRow = document.createElement('tr');
@@ -56,8 +59,8 @@ export function showToDos (project) {
         tableRow.appendChild(td5);
         tableRow2.appendChild(emptyTd);
         tableRow2.appendChild(td4);
-        toDoTable.appendChild(tableRow);
-        toDoTable.appendChild(tableRow2);
+        tableToDo.appendChild(tableRow);
+        tableToDo.appendChild(tableRow2);
 
     } 
       
@@ -78,11 +81,12 @@ export function showToDos (project) {
       }
 }
 
+// adds to do to current open to do
 export function addToDoToList (project) {
-  const toDoTable = document.getElementById('showtdtab');
+  const tableToDo = document.getElementById('showtdtab');
   const todoTitles = document.getElementsByClassName('todotitle');
   const tableTitlesArray = [];
-  if(toDoTable.length > 0) {
+  if(tableToDo.length > 0) {
     for (let i = 0; i < todoTitles.length; i++) {
       tableTitlesArray.push(todoTitles[i].innerHTML);
     }
@@ -148,8 +152,8 @@ export function addToDoToList (project) {
       tableRow.appendChild(td5);
       tableRow2.appendChild(emptyTd);
       tableRow2.appendChild(td4);
-      toDoTable.appendChild(tableRow);
-      toDoTable.appendChild(tableRow2);
+      tableToDo.appendChild(tableRow);
+      tableToDo.appendChild(tableRow2);
 
      } 
   } 

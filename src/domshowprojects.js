@@ -35,6 +35,7 @@ export const showProjects = () => {
 
     DivToDo.appendChild(projectsContainer);
 
+    // creates input for new project
     addNewProject.addEventListener('click', () => {
       const inputNewProject = document.createElement('input');
       inputNewProject.setAttribute('type', 'text');
@@ -53,6 +54,7 @@ export const showProjects = () => {
         }
       });
 
+      // adds new project to list in project folder
       btnNewProject.addEventListener('click', () => {
         const newProjectTitle = inputNewProject.value;
         const newProjectTxt = document.createElement('h2');
@@ -64,6 +66,7 @@ export const showProjects = () => {
         
         allProjects.push(projectFactory(newProjectTitle, window[newProjectTitle] = []));
 
+        // open the new project
         newProjectTxt.addEventListener('click', () => {
           const toDoTable = document.getElementById("showtdtab");
           let projectArray = allProjects[allProjects.length - 1].TheArray;
@@ -73,6 +76,8 @@ export const showProjects = () => {
             toDoTable.innerHTML = '';
             console.log('tabel weghalen');
           }
+          // currentProject = projectArray;
+          console.log(projectArray);
           showToDos(projectArray);
           projectTitle.innerText = `${allProjects[allProjects.length - 1].getTitle}`;
         })
