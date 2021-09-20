@@ -25,7 +25,7 @@ export const showProjects = () => {
         if(toDoTable == null) {
           console.log('geen tabel');
         } else {
-          DivToDo.removeChild(toDoTable);
+          toDoTable.innerHTML = '';
           console.log('tabel weghalen');
         }
         showToDos(projectArray);

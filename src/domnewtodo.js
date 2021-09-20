@@ -140,12 +140,16 @@ function submitToDo() {
               console.log(allProjects[index].TheArray);
               allProjects[index].TheArray.push(toDoFactory(titleText.value, descriptionText.value, dueDateText.value, priorityText.value));
               console.log(allProjects);
+              if(projectTitle.innerText == projectChoice) {
+                addToDoToList(allProjects[index].TheArray);
+              }
+              
           }
       };
 
       contentDiv.removeChild(document.getElementById('createtodo'));
       formHere = 'no';
-      addToDoToList(currentProject);
+      
       } else { return}
   })
 }
