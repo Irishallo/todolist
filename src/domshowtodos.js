@@ -27,6 +27,8 @@ export function showToDos (project) {
         const descriptionToDo = document.createElement('p');
         descriptionToDo.innerText = project[i].getDescription;
         const emptyTd = document.createElement('td');
+        const descriptionTitle = document.createElement('p');
+        descriptionTitle.innerText = "Description:";
 
         if(project[i].getPriority == 1) {
           tableRow.classList.add('priority1');
@@ -53,6 +55,7 @@ export function showToDos (project) {
         td3.appendChild(dueDateToDo);
         td4.appendChild(descriptionToDo);
         td5.appendChild(collapseBtn);
+        emptyTd.appendChild(descriptionTitle);
         tableRow.appendChild(td1);
         tableRow.appendChild(td2);
         tableRow.appendChild(td3);
@@ -61,6 +64,16 @@ export function showToDos (project) {
         tableRow2.appendChild(td4);
         tableToDo.appendChild(tableRow);
         tableToDo.appendChild(tableRow2);
+
+        // here comes logic to check the todos and create stripethrough text
+        checkToDo.addEventListener("click", () => {
+          if(checkToDo.checked) {
+            let content = this.parentNode.parentNode;
+            content.classList.add("todochecked");
+          } else {
+            content.classList.remove("todochecked");
+          }
+        })
 
     } 
       
@@ -120,6 +133,8 @@ export function addToDoToList (project) {
       const descriptionToDo = document.createElement('p');
       descriptionToDo.innerText = project[i].getDescription;
       const emptyTd = document.createElement('td');
+      const descriptionTitle = document.createElement('p');
+      descriptionTitle.innerText = "Description:";
 
       if(project[i].getPriority == 1) {
         tableRow.classList.add('priority1');
@@ -146,6 +161,7 @@ export function addToDoToList (project) {
       td3.appendChild(dueDateToDo);
       td4.appendChild(descriptionToDo);
       td5.appendChild(collapseBtn);
+      emptyTd.appendChild(descriptionTitle);
       tableRow.appendChild(td1);
       tableRow.appendChild(td2);
       tableRow.appendChild(td3);
